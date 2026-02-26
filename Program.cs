@@ -10,15 +10,46 @@ public class Program
         // tipo nomeDaVariavel;
         float nota1, nota2, nota3, media;
         string opcao;        
+        bool estaLogado = false;
 
-        List <Professor> professores = new List<Professor>();
-
+        List <Professor> listaProfessores = new List<Professor>();
         Professor professorAtual = new Professor();
 
-        professorAtual = professorAtual.CadastrarProfessor(professorAtual);
-        professores.Add(professorAtual);
+    do{
+        
+       Console.WriteLine("========Menu========");
+       Console.WriteLine("1 -Cadastrar Professor");
+       Console.WriteLine("2 - Fazer Login");
+       Console.WriteLine("3- Fechar o programa");
+       Console.WriteLine("digite uma das opcões acima");
+       int opcaoMenu = int.Parse(Console.ReadLine()?? "");
 
-        bool estaLogado = professorAtual.Login(professores);
+       switch (opcaoMenu)
+
+       
+       {
+        case 1:
+            professorAtual.CadastrarProfessor(professorAtual);
+            listaProfessores.Add(professorAtual);
+            break; 
+
+        case 2:
+          estaLogado = professorAtual.Login(listaProfessores);
+          break;
+        case 3 :
+          estaLogado = false;
+          break;
+
+
+
+       default:
+            Console.WriteLine("digite um numero entre 1 e 3 de acordo com a opcao do menu desejado:");
+            opcaoMenu =int.Parse(Console.ReadLine()?? "");
+       break;
+
+       }
+       }while(estaLogado==false);
+
 
         if(estaLogado == true){
             do{

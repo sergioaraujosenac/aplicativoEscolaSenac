@@ -32,15 +32,16 @@ public class Professor
 
     }
 
-    public void Menu(){
-        
-    }
+
     public bool Login(List <Professor> listaProfessores)
+    
+
+
     {
         int tentativas = 3;
 
         do{
-            Console.WriteLine("========TELA DE LOGIN========");
+            
             Console.WriteLine("Digite seu Login: ");
             string? loginAtual = Console.ReadLine();
             Console.WriteLine("Digite sua Senha: ");
