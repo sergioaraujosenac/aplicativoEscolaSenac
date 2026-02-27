@@ -11,6 +11,7 @@ public class Program
         float nota1, nota2, nota3, media;
         string opcao;        
         bool estaLogado = false;
+        bool programaFinalizado =false;
 
         List <Professor> listaProfessores = new List<Professor>();
         Professor professorAtual = new Professor();
@@ -31,13 +32,17 @@ public class Program
         case 1:
             professorAtual.CadastrarProfessor(professorAtual);
             listaProfessores.Add(professorAtual);
+            professorAtual= new Professor();
             break; 
 
         case 2:
           estaLogado = professorAtual.Login(listaProfessores);
+
           break;
         case 3 :
           estaLogado = false;
+          programaFinalizado =true;
+          
           break;
 
 
@@ -48,7 +53,7 @@ public class Program
        break;
 
        }
-       }while(estaLogado==false);
+       }while(estaLogado==false && programaFinalizado==false);
 
 
         if(estaLogado == true){
@@ -90,6 +95,6 @@ public class Program
             }while(opcao=="s" || opcao=="S");
         }
         
-        Console.WriteLine("Não pode acessar a área do aluno. Faça seu login novamente!");
+        Console.WriteLine("programa finalizado.");
     }
 }
